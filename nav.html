@@ -1,0 +1,46 @@
+<doctype>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<script src="assets/js/packages/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
+		<link rel="stylesheet" href="assets/css/packages/bulma.css">
+		<link rel="stylesheet" href="assets/css/packages/font-awesome.css">
+		<link rel="stylesheet" href="assets/css/main.css">
+	</head>
+	<script>
+		var app = angular.module("app",['ngRoute']);
+		app.config(function($routeProvider){
+			$routeProvider
+			.when("/", {
+				templateUrl:"templates/home.html"
+			})
+			.when("/characters",{
+				templateUrl:"templates/characters.html"
+			})
+			.when("/comics",{
+				templateUrl:"templates/comics.html"
+			})
+		})
+	</script>
+	<script type="text/javascript" src="app/components/characters/characters_service.js"></script>
+	<script type="text/javascript" src="app/components/characters/characters_controller.js"></script>
+	<body ng-app="app" ng-controller="charactersController"/>
+		<nav class="nav">
+			<div class="nav-left">
+				<a class="nav-item istab" href="#/">
+				HOME
+				</a>
+				<a class="nav-item istab" href="#/characters">
+				CHARACTERS
+				</a>
+				<a class="nav-item istab" href="#/comics">
+				COMICS
+				</a>
+			</div>
+		</nav>
+		<ng-view></ng-view>
+
+			
+	</body>
+</doctype>
