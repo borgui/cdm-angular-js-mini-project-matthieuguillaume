@@ -1,0 +1,23 @@
+<doctype>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<script src="assets/js/packages/angular.min.js"></script>
+		<link rel="stylesheet" href="assets/css/packages/bulma.css">
+		<link rel="stylesheet" href="assets/css/packages/font-awesome.css">
+	</head>
+	
+	<body ng-app = "app" ng-controller = "FirstController">
+		<label for="pseudo">Pseudo : </label>
+		<input type="text" id="pseudo" ng-model="pseudo"/>
+		<br/>
+		<label for="email">Email : </label>
+		<input type="email" id="email" ng-model="email"/>
+		<br/>
+		<label for="pseudo">Password : </label>
+		<input type="password" id="password" ng-model="password"/>
+		<br/>
+		<input type="button" value="Envoyer"/>
+	</body>
+</html>
+</doctype>
