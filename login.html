@@ -1,0 +1,40 @@
+<doctype>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<script src="assets/js/packages/angular.min.js"></script>
+        
+		<link rel="stylesheet" href="assets/css/packages/bulma.css">
+		<link rel="stylesheet" href="assets/css/packages/font-awesome.css">
+	</head>
+	<script>
+		var app = angular.module("app",[]);
+	</script>
+    <script src="app/components/Users/Users_Controller.js"></script>
+    <script src="app/components/ServiceStorage/storage_service.js"></script>
+    
+    
+	<body ng-app = "app" ng-controller ="Controller_Users">
+		<div class="container">
+		<label for="pseudo">Pseudo : </label>
+		<p class="control">
+			<input class="input" type="text" id="pseudo" ng-model="pseudo"/>
+		</p>
+		<label for="email">Email : </label>
+		<p class="control">
+			<input class="input" type="email" id="email" ng-model="email"/>
+		</p>
+		<label for="pseudo">Password : </label>
+		<p class="control">
+			<input class="input" type="password" id="password" ng-model="password"/>
+		</p>
+		<p class="control" ng-click="setObject()">
+			<input class="button is-dark" type="button" value="Envoyer"/>
+		</p>
+        <p class="control" ng-click="destroy()">
+            <input class="button" type="button" value="Nettoyer"/>
+        </p>
+		</div>
+	</body>
+</html>
+</doctype>
