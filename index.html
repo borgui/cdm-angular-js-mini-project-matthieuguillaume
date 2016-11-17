@@ -8,16 +8,23 @@
 	</head>
 	
 	<body ng-app = "app" ng-controller = "FirstController">
+		<div class="container">
 		<label for="pseudo">Pseudo : </label>
-		<input type="text" id="pseudo" ng-model="pseudo"/>
-		<br/>
+		<p class="control">
+			<input class="input" type="text" id="pseudo" ng-model="pseudo"/>
+		</p>
 		<label for="email">Email : </label>
-		<input type="email" id="email" ng-model="email"/>
-		<br/>
+		<p class="control">
+			<input class="input" type="email" id="email" ng-model="email"/>
+		</p>
 		<label for="pseudo">Password : </label>
-		<input type="password" id="password" ng-model="password"/>
-		<br/>
-		<input type="button" value="Envoyer"/>
+		<p class="control">
+			<input class="input" type="password" id="password" ng-model="password"/>
+		</p>
+		<p class="control">
+			<input class="button is-dark" type="button" value="Envoyer"/>
+		</p>
+		</div>
 	</body>
 </html>
 </doctype>
