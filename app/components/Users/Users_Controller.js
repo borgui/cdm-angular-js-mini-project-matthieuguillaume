@@ -47,7 +47,7 @@ app.controller('Controller_Users', function ($scope, storage_service, $rootScope
               'email': 'majdi@efreitech.fr',   
             }]; 
     $scope.temp = []; 
-    $rootScope.Isconnected = false;
+    $scope.Isconnected = false;
     $scope.InitStorage = function () {
     for (var i=0; i< $scope.Users.length ; i++){
         storage_service.setObject('User_' + i, $scope.Users[i]);
@@ -67,13 +67,14 @@ app.controller('Controller_Users', function ($scope, storage_service, $rootScope
          
         if($scope.pseudo == $scope.temp[i].pseudo && $scope.password == $scope.temp[i].password && $scope.email == $scope.temp[i].email){ 
             $rootScope.Isconnected = true; 
+            storage_service('connecté', $scope.Isconnected);
             break;
             } 
          
       
      } 
     
-    if ($rootScope.Isconnected == true) {
+    if ($scope.Isconnected == true) {
         console.log("Bonjour " + $scope.pseudo );
          window.location.replace('/');
     }

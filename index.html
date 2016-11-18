@@ -28,8 +28,10 @@
 			})
 
 		});
-		app.run( function($rootScope, $location) {
-
+		app.run( function($rootScope, $location, storage_service) {
+            if ( !(storage_service.get('connecté'))) {
+                window.location.replace('/login.html');
+            }
     	});
 	</script>
 	<script type="text/javascript" src="app/components/Users/Users_Controller.js"></script>
