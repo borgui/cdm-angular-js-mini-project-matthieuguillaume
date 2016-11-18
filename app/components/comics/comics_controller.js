@@ -8,7 +8,6 @@ app.controller('comicsController', function($scope, comicsData){
 			$scope.comics = response.data.data.results;
 			console.log(response.data.data.results);
 			$scope.loading = false;
-			$scope.count = response.data.data.total;
 		})
 	}
 	

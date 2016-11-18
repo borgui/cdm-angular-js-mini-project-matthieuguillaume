@@ -10,5 +10,9 @@ app.controller('charactersController', function($scope, charData){
 			$scope.loading = false;
 		})
 	}
+	$scope.info = function(){
+		console.log("test");
+	}
+
 	
 });

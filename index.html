@@ -22,6 +22,9 @@
 			.when("/comics",{
 				templateUrl:"templates/comics.html"
 			})
+			.when("/character/:id",{
+				templateUrl:"templates/characterInfos.html"
+			})
 
 		});
 		app.run( function($rootScope, $location) {
@@ -31,6 +34,9 @@
 	</script>
 	<script type="text/javascript" src="app/components/characters/characters_service.js"></script>
 	<script type="text/javascript" src="app/components/characters/characters_controller.js"></script>
+		<script type="text/javascript" src="app/components/comics/comics_service.js"></script>
+	<script type="text/javascript" src="app/components/comics/comics_controller.js"></script>
+	<script type="text/javascript" src="app/components/characters/characterInfos_controller.js"></script>
 	<body ng-app="app" ng-controller="charactersController">
 		<nav class="nav">
 			<div class="nav-left">
