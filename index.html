@@ -7,6 +7,8 @@
 		<link rel="stylesheet" href="assets/css/packages/bulma.css">
 		<link rel="stylesheet" href="assets/css/packages/font-awesome.css">
 		<link rel="stylesheet" href="assets/css/main.css">
+        <script src="app/components/ServiceStorage/storage_service.js"></script>
+        <script src="app/components/Users/Users_Controller.js"></script>
 	</head>
 	<script>
 		var app = angular.module("app",['ngRoute']);
@@ -24,13 +26,14 @@
 
 		});
 		app.run( function($rootScope, $location) {
+             if ($rootScope.pseudo != storage_service.get($rootScope.pseudo)) {
 			 window.location.replace("login.html");
+             }
     	});
-
 	</script>
 	<script type="text/javascript" src="app/components/characters/characters_service.js"></script>
 	<script type="text/javascript" src="app/components/characters/characters_controller.js"></script>
-	<body ng-app="app" ng-controller="charactersController"/>
+	<body ng-app="app" ng-controller="charactersController">
 		<nav class="nav">
 			<div class="nav-left">
 				<a class="nav-item istab" href="#/">
@@ -45,7 +48,7 @@
 			</div>
 		</nav>
 		<ng-view></ng-view>
-
-			
-	</body>
+    </body>
+    </html>
+    
 </doctype>
