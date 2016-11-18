@@ -66,12 +66,10 @@ app.controller('Controller_Users', function ($scope, storage_service, $rootScope
         $scope.temp[i] = storage_service.getObject('User_'+ i, "faux");
          
         if($scope.pseudo == $scope.temp[i].pseudo && $scope.password == $scope.temp[i].password && $scope.email == $scope.temp[i].email){ 
-            $rootScope.Isconnected = true; 
+            $scope.Isconnected = true; 
             storage_service.set('connecté', $scope.Isconnected);
             break;
-            } 
-         
-      
+            }   
      } 
     
     if ($scope.Isconnected == true) {
