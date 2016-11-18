@@ -48,7 +48,6 @@ app.controller('Controller_Users', function ($scope, storage_service, $rootScope
             }]; 
     $scope.temp = []; 
     $rootScope.Isconnected = false;
-    
     $scope.InitStorage = function () {
     for (var i=0; i< $scope.Users.length ; i++){
         storage_service.setObject('User_' + i, $scope.Users[i]);
