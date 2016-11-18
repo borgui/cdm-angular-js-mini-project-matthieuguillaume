@@ -46,26 +46,33 @@ app.controller('Controller_Users', function ($scope, storage_service){
               'password': 'AAAAA', 
               'email': 'majdi@efreitech.fr',   
             }]; 
+    $scope.temp = []; 
     
     $scope.InitStorage = function () {
     for (var i=0; i< $scope.Users.length ; i++){
-        storage_service.setObject('User_' + i, $scope.Users[i]); 
-        storage_service.set("Pseudo", $scope.Users[i].pseudo);
-        console.log($scope.Users[i]);
-    }
+        storage_service.setObject('User_' + i, $scope.Users[i]);
+     }
     };
   
     
     $scope.Connexion = function () { 
-    var temp = storage_service.getObject($scope.Users[1], "faux");  
-    
-    if ($scope.pseudo != temp.pseudo || $scope.password != temp.password || $scope.email != temp.email){
-        //window.location.reload(false);
-        console.log("compte erroné");
-          }
-    else {
-            console.log("Bienvenue "+$scope.pseudo);   
-        }
+     for(var i=0; i<$scope.Users.length; i++)   {
+        $scope.temp[i] = storage_service.getObject('User_'+ i, "faux");  
+     }
+         
+    while(i < $scope.Users.length){        
+     if ($scope.pseudo != $scope.temp[i].pseudo || $scope.password != $scope.temp[i].password || $scope.email != $scope.temp[i].email){
+            //window.location.reload(false);
+            console.log("faux");
+     }
+         
+      else {
+             console.log("Bienvenue "+$scope.pseudo); 
+         }
+     i++ ; 
+       
+    }
+        
            
     
         
