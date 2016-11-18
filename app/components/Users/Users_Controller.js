@@ -1,4 +1,4 @@
-app.controller('Controller_Users', function ($scope, storage_service){
+app.controller('Controller_Users', function ($scope, storage_service, $rootScope){
     $scope.pseudo; 
     $scope.password; 
     $scope.email ; 
@@ -47,6 +47,7 @@ app.controller('Controller_Users', function ($scope, storage_service){
               'email': 'majdi@efreitech.fr',   
             }]; 
     $scope.temp = []; 
+    $rootScope.Isconnected = false;
     
     $scope.InitStorage = function () {
     for (var i=0; i< $scope.Users.length ; i++){
@@ -56,27 +57,35 @@ app.controller('Controller_Users', function ($scope, storage_service){
   
     
     $scope.Connexion = function () { 
+        
+    if ($scope.pseudo == " " || $scope.password == " " || $scope.email == " ") {
+            alert("Les champs sont vides"); 
+        }
+        
+    
      for(var i=0; i<$scope.Users.length; i++)   {
-        $scope.temp[i] = storage_service.getObject('User_'+ i, "faux");  
-     }
+        $scope.temp[i] = storage_service.getObject('User_'+ i, "faux");
          
-    while(i < $scope.Users.length){        
-     if ($scope.pseudo != $scope.temp[i].pseudo || $scope.password != $scope.temp[i].password || $scope.email != $scope.temp[i].email){
-            //window.location.reload(false);
-            console.log("faux");
-     }
+        if($scope.pseudo == $scope.temp[i].pseudo && $scope.password == $scope.temp[i].password && $scope.email == $scope.temp[i].email){ 
+            $rootScope.Isconnected = true; 
+            break;
+            } 
          
-      else {
-             console.log("Bienvenue "+$scope.pseudo); 
-         }
-     i++ ; 
-       
+      
+     } 
+    
+    if ($rootScope.Isconnected == true) {
+        console.log("Bonjour " + $scope.pseudo );
+         window.location.replace('/');
     }
+    else{
+        alert("compte inconnu");
+        window.location.reload(); 
+    }    
+      
+              
         
            
-    
-        
-        
     };
  
    

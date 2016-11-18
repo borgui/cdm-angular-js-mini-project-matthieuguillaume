@@ -28,8 +28,8 @@
 
 		});
 		app.run( function($rootScope, $location) {
-			 
-             
+			 if ($rootScope.Isconnected == false)
+                 window.location.replace('/login.html');
     	});
 	</script>
 	<script type="text/javascript" src="app/components/characters/characters_service.js"></script>
