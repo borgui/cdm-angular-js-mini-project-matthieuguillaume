@@ -1,4 +1,8 @@
-<div class="columns is-multiline" ng-controller="charactersController" ng-init="info">
+
+<div ng-controller="charactersController">
+<button class="button" ng-click="characters|descending">Decroissant</button>
+<div class="columns is-multiline">
+
 	<div class="loader" ng-show="loading"></div>
 
 		<div class="column is-one-quarter" style="text-align:center;" ng-repeat="character in characters">
@@ -9,5 +13,6 @@
 			</a>
 		</div>
 	
+    </div>
     </div>
 </div>
