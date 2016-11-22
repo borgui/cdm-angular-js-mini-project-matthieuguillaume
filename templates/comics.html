@@ -1,8 +1,6 @@
 <div class="columns is-multiline" ng-controller="comicsController">
 	<div class="loader" ng-show="loading"></div>
-	<div class = "column is-one-quarter" style="text-align:center;" ng-repeat="comic in comics">
-		      <img  style="max-width:120px; max-height:120px" src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="">
-
-		        <p class="title is-5">{{comic.title}}</p>
+	<div  class = "column is-one-quarter" style="text-align:center;" ng-repeat="comic in comics">
+		  <div my-marvel-comics></div>
     </div>
 </div>	
