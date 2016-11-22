@@ -3,4 +3,12 @@
 	<img  style="max-width:250px; max-height:250px" src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" alt="">
 
 	<p class="title is-5">{{character.name}}</p> 
+    <p class="title is-5">Description : {{character.description}}</p>
+    <p class="title is-5">ID :{{character.id}}</p> 
+    <span class="title is-5">Series : </span>
+    <div ng-repeat="items in character.series">
+    <p class="title is-5">{{character.series.items[$index].name}}</p>       
+    </div>
+    
+    
 </div>
