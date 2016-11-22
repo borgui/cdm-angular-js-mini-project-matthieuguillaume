@@ -1,6 +1,12 @@
 
 <div ng-controller="charactersController">
+<div class="columns">
 <button class="button" ng-click="characters|descending">Decroissant</button>
+<p class="control has-addons">
+<input class="input" type="text" id="searchName" placeholder="Nom du héro" ng-model="inputSearchName">
+<a class="button is-info" ng-click="searchName()"> Rechercher </a>
+</p>
+</div>
 <div class="columns is-multiline">
 
 	<div class="loader" ng-show="loading"></div>

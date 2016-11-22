@@ -1,8 +1,8 @@
-app.controller('charactersController', function($scope, charData){
+app.controller('charactersController', function($scope, charData, $filter){
 	$scope.characters;
-	$scope.loading = true;
 	getCharacters();
 	function getCharacters(){
+		$scope.loading = true;
 		charData.getCharacters()
 		.then(function(response){
 			$scope.characters = response.data.data.results;
@@ -13,6 +13,14 @@ app.controller('charactersController', function($scope, charData){
 	$scope.info = function(){
 		console.log("test");
 	}
-
+	$scope.searchName = function(){
+		var searchChar = $filter('searchname')($scope.characters, $scope.inputSearchName);
+		if($scope.inputSearchName === ""){
+			getCharacters();
+		}
+		else{
+			$scope.characters = searchChar; 
+		}
+	}
 	
 });
