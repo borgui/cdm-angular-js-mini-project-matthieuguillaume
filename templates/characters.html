@@ -1,11 +1,32 @@
 
 <div ng-controller="charactersController">
 <div class="columns">
-<button class="button" ng-click="characters|descending">Decroissant</button>
-<p class="control has-addons">
-<input class="input" type="text" id="searchName" placeholder="Nom du héro" ng-model="inputSearchName">
-<a class="button is-info" ng-click="searchName()"> Rechercher </a>
-</p>
+	<div class="column is-2">
+		<button class="button" ng-click="characters|descending">Decroissant</button>
+	</div>
+	<div class="column is-4">
+		<p class="control has-addons">
+			<input class="input" type="text" id="searchName" placeholder="Nom du héro" ng-model="inputSearchName">
+			<a class="button is-info" ng-click="searchName()"> Rechercher </a>
+		</p>
+	</div>
+	<div class="column is-2">
+		<div class="control is-horizontal">
+			<div class="control-label">
+				<label class="label">Limite: </label>
+			</div>
+			<div class="control">
+	  			<div class="select">
+	    			<select ng-init="limitValue = '20'" ng-model="limitValue" ng-change="limitCharacters()" >
+	      				<option>5</option>
+	     				<option>10</option>
+	      				<option>15</option>
+	      				<option>20</option>
+	    			</select>
+	  			</div>
+			</div>
+		</div>
+	</div>
 </div>
 <div class="columns is-multiline">
 

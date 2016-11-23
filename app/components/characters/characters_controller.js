@@ -8,6 +8,7 @@ app.controller('charactersController', function($scope, charData, $filter){
 			$scope.characters = response.data.data.results;
 			console.log(response.data.data.results);
 			$scope.loading = false;
+			$scope.fullCharacters = $scope.characters
 		})
 	}
 	$scope.info = function(){
@@ -21,6 +22,11 @@ app.controller('charactersController', function($scope, charData, $filter){
 		else{
 			$scope.characters = searchChar; 
 		}
+	}
+	$scope.limitCharacters = function(){
+		$scope.characters = $scope.fullCharacters;
+		var limitChar = $filter('limitCharacters')($scope.characters, $scope.limitValue);
+		$scope.characters = limitChar;
 	}
 	
 });
